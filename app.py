@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageOps
 import io
 from database import add_post, update_likes, get_all_posts, search_posts, get_all_tags, setup_database, upload_file_to_s3, DATABASE_PATH
 from streamlit_tags import st_tags  # streamlit_tagsパッケージのインポート
@@ -10,7 +10,7 @@ from streamlit.components.v1 import html
 setup_database()
 
 # 画像を縮小する関数
-def resize_image(image_data, max_width=800):
+def resize_image(image_data, max_width=1200):
     image = Image.open(io.BytesIO(image_data))
     if image.width > max_width:
         ratio = max_width / float(image.width)
@@ -19,7 +19,10 @@ def resize_image(image_data, max_width=800):
         
         # RGBAからRGBへの変換
         if resized_image.mode == 'RGBA':
-            resized_image = resized_image.convert('RGB')
+            # 透過部分を白で塗りつぶす
+            background = Image.new('RGB', resized_image.size, (255, 255, 255))
+            background.paste(resized_image, (0, 0), resized_image)
+            resized_image = background
         
         output = io.BytesIO()
         resized_image.save(output, format='JPEG')
