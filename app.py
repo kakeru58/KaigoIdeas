@@ -2,7 +2,10 @@ import streamlit as st
 from PIL import Image
 import io
 from database import add_post, update_likes, get_all_posts, search_posts, get_all_tags, setup_database, upload_file_to_s3, DATABASE_PATH
-
+from streamlit_tags import st_tags  # streamlit_tagsパッケージのインポート
+from setup_db import setup_database
+from streamlit_tags import st_tags
+from streamlit.components.v1 import html
 # データベースをセットアップ
 setup_database()
 
