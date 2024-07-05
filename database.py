@@ -2,15 +2,16 @@ import sqlite3
 import boto3
 import os
 from botocore.exceptions import ClientError
+import streamlit as st
 
 # Amazon S3設定
 s3 = boto3.client(
     's3',
-    aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
-    aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-    region_name=os.getenv("AWS_REGION")
+    aws_access_key_id=st.secrets["s3"]["aws_access_key_id"],
+    aws_secret_access_key=st.secrets["s3"]["aws_secret_access_key"],
+    region_name=st.secrets["s3"]["region"]
 )
-BUCKET_NAME = os.getenv("BUCKET_NAME")
+BUCKET_NAME = st.secrets["s3"]["bucket_name"]
 
 # S3にファイルをアップロードする関数
 def upload_file_to_s3(local_path, s3_path):
