@@ -66,12 +66,10 @@ if st.button('投稿'):
 st.header('投稿を検索')
 st.write('検索キーワードを入力するか、タグを追加して検索してください。')
 query = st.text_input('検索キーワード')
-search_tags = st_tags(
-    label='タグを追加',
-    text='タグを入力',
-    value=[],
-    suggestions=all_tags,
-    maxtags=10,
+search_tags = st.multiselect(
+    'タグを選択',
+    options=all_tags,
+    default=[],
     key='search_tags_input'
 )
 
