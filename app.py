@@ -2,10 +2,8 @@ import streamlit as st
 from PIL import Image, ImageOps
 import io
 from database import add_post, update_likes, get_all_posts, search_posts, get_all_tags, setup_database, upload_file_to_s3, DATABASE_PATH
-from streamlit_tags import st_tags  # streamlit_tagsパッケージのインポート
-from setup_db import setup_database
 from streamlit_tags import st_tags
-from streamlit.components.v1 import html
+
 # データベースをセットアップ
 setup_database()
 
@@ -68,10 +66,12 @@ if st.button('投稿'):
 st.header('投稿を検索')
 st.write('検索キーワードを入力するか、タグを追加して検索してください。')
 query = st.text_input('検索キーワード')
-search_tags = st.multiselect(
-    'タグを選択',
-    options=all_tags,
-    default=[],
+search_tags = st_tags(
+    label='タグを追加',
+    text='タグを入力',
+    value=[],
+    suggestions=all_tags,
+    maxtags=10,
     key='search_tags_input'
 )
 
@@ -106,6 +106,7 @@ tag_style = """
 # 投稿を表示
 st.header('投稿一覧')
 st.markdown(tag_style, unsafe_allow_html=True)
+liked_posts = st.session_state.get('liked_posts', set())
 for post in posts:
     st.markdown("---")
     if post['image']:
@@ -118,8 +119,11 @@ for post in posts:
             tags_html = ''.join(f'<span class="tag">{tag}</span>' for tag in post['tags'].split(','))
             st.markdown(tags_html, unsafe_allow_html=True)
             st.write(f"いいね: {post['likes']}")
-            if st.button('いいね', key=f"like_{post['id']}"):
+            if st.button('いいね', key=f"like_{post['id']}", disabled=(post['id'] in liked_posts)):
                 update_likes(post['id'])
+                liked_posts.add(post['id'])
+                st.session_state['liked_posts'] = liked_posts
+                upload_file_to_s3(DATABASE_PATH, 'ideas.db')  # いいねを反映したDBをS3にアップロード
                 st.experimental_rerun()
     else:
         st.subheader(post['title'])
@@ -127,6 +131,9 @@ for post in posts:
         tags_html = ''.join(f'<span class="tag">{tag}</span>' for tag in post['tags'].split(','))
         st.markdown(tags_html, unsafe_allow_html=True)
         st.write(f"いいね: {post['likes']}")
-        if st.button('いいね', key=f"like_{post['id']}"):
+        if st.button('いいね', key=f"like_{post['id']}", disabled=(post['id'] in liked_posts)):
             update_likes(post['id'])
+            liked_posts.add(post['id'])
+            st.session_state['liked_posts'] = liked_posts
+            upload_file_to_s3(DATABASE_PATH, 'ideas.db')  # いいねを反映したDBをS3にアップロード
             st.experimental_rerun()
