@@ -137,7 +137,7 @@ for post in posts:
             st.experimental_rerun()
 # フッターに著作権情報とロゴを表示
 st.markdown("---")
-footer_col1, footer_col2 = st.columns([5, 1])
+footer_col1, footer_col2 = st.columns([4, 1])
 
 with footer_col1:
     st.write("© 2024 Kakeru Yamasaki. Licensed under the MIT License.")
