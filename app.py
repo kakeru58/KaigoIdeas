@@ -30,8 +30,7 @@ def resize_image(image_data, max_width=1200):
 # UIの設定
 st.set_page_config(layout="wide")
 # 開発元のロゴ画像を表示
-st.sidebar.title('開発元のロゴ')
-col1, col2, col3 = st.sidebar.columns(3)
+col1, col2, col3 = st.columns([1, 1, 1])
 
 with col1:
     logo1 = Image.open('logo1.png')
