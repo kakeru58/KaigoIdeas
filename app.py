@@ -146,7 +146,6 @@ with footer_col2:
     st.markdown(
         """
         <div style="display: flex; align-items: center;">
-            <span>© 2024 Kakeru Yamasaki. Licensed under the MIT License.</span>
             <img src="logo1.png" alt="Logo" style="width: 50px; margin-left: 10px;">
         </div>
         """,
