@@ -144,4 +144,4 @@ with footer_col1:
 
 with footer_col2:
     logo_footer = Image.open('logo1.png')
-    st.image(logo_footer, width=50)
+    st.image(logo_footer, width=300)
