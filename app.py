@@ -146,7 +146,7 @@ with footer_col2:
     st.markdown(
         """
         <div style="display: flex; align-items: center;">
-            <img src="logo1.png" alt="Logo" style="width: 50px; margin-left: 10px;">
+            <img src="static/logo1.png" alt="Logo" style="width: 50px; margin-left: 10px;">
         </div>
         """,
         unsafe_allow_html=True
