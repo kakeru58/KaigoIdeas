@@ -144,8 +144,13 @@ for post in posts:
 # フッターに著作権情報とロゴを表示
 st.markdown("---")
 # ロゴ画像をBase64エンコード
-logo_path = "logo1.png"
-logo_base64 = get_base64_image(logo_path)
+logo1_path = "logo1.png"  # それぞれのロゴのパスに変更
+logo2_path = "logo2.png"
+logo3_path = "logo3.png"
+
+logo1_base64 = get_base64_image(logo1_path)
+logo2_base64 = get_base64_image(logo2_path)
+logo3_base64 = get_base64_image(logo3_path)
 
 # フッターに著作権情報とBase64エンコードされたロゴを表示
 footer_col1, footer_col2 = st.columns([8, 1])
@@ -157,8 +162,14 @@ with footer_col2:
     st.markdown(
         f"""
         <div style="display: flex; align-items: center;">
-            <a href="https://your-link-here.com" target="_blank">
-                <img src="data:image/png;base64,{logo_base64}" alt="Logo" style="width: 50px; margin-left: 10px;">
+            <a href="https://yamasaki5868688.wixsite.com/hsc-site/%E3%81%99%E3%81%90%E5%89%B5%E3%82%8B%E8%AA%B2" target="_blank">
+                <img src="data:image/png;base64,{logo1_base64}" alt="Logo" style="width: 50px; margin-left: 10px;">
+            </a>
+            <a href="https://slc3lab.jp/" target="_blank">
+                <img src="data:image/png;base64,{logo2_base64}" alt="Logo" style="width: 50px; margin-left: 10px;">
+            </a>
+            <a href="https://yamasaki5868688.wixsite.com/cctechnology" target="_blank">
+                <img src="data:image/png;base64,{logo3_base64}" alt="Logo" style="width: 50px; margin-left: 10px;">
             </a>
         </div>
         """,
