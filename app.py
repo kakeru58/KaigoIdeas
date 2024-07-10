@@ -3,10 +3,16 @@ from PIL import Image, ImageOps
 import io
 from database import add_post, update_likes, get_all_posts, search_posts, get_all_tags, setup_database, upload_file_to_s3, DATABASE_PATH
 from streamlit_tags import st_tags
+import base64
+
 
 # データベースをセットアップ
 setup_database()
 
+# Base64エンコードされた画像を生成する関数
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
 # 画像を縮小する関数
 def resize_image(image_data, max_width=1200):
     image = Image.open(io.BytesIO(image_data))
@@ -143,5 +149,13 @@ with footer_col1:
     st.write("© 2024 Kakeru Yamasaki. Licensed under the MIT License.")
 
 with footer_col2:
-    logo_footer = Image.open('logo1.png')
-    st.image(logo_footer, width=300)
+    st.markdown(
+        """
+        <div style="display: flex; align-items: center;">
+            <a href="https://your-link-here.com" target="_blank">
+                <img src="logo1.png" alt="Logo" style="width: 50px; margin-left: 10px;">
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
