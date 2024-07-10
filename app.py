@@ -29,6 +29,21 @@ def resize_image(image_data, max_width=1200):
 
 # UIの設定
 st.set_page_config(layout="wide")
+# 開発元のロゴ画像を表示
+st.sidebar.title('開発元のロゴ')
+col1, col2, col3 = st.sidebar.columns(3)
+
+with col1:
+    logo1 = Image.open('logo1.png')
+    st.image(logo1, use_column_width=True)
+
+with col2:
+    logo2 = Image.open('logo2.png')
+    st.image(logo2, use_column_width=True)
+
+with col3:
+    logo3 = Image.open('logo3.png')
+    st.image(logo3, use_column_width=True)
 
 st.title('介護福祉のアイデアサイト')
 
