@@ -163,13 +163,13 @@ with footer_col2:
         f"""
         <div style="display: flex; align-items: center;">
             <a href="https://yamasaki5868688.wixsite.com/hsc-site/%E3%81%99%E3%81%90%E5%89%B5%E3%82%8B%E8%AA%B2" target="_blank">
-                <img src="data:image/png;base64,{logo1_base64}" alt="Logo" style="width: 50px; margin-left: 10px;">
+                <img src="data:image/png;base64,{logo1_base64}" alt="Logo" style="width: 70px; margin-left: 20px;">
             </a>
             <a href="https://slc3lab.jp/" target="_blank">
-                <img src="data:image/png;base64,{logo2_base64}" alt="Logo" style="width: 50px; margin-left: 10px;">
+                <img src="data:image/png;base64,{logo2_base64}" alt="Logo" style="width: 70px; margin-left: 20px;">
             </a>
             <a href="https://yamasaki5868688.wixsite.com/cctechnology" target="_blank">
-                <img src="data:image/png;base64,{logo3_base64}" alt="Logo" style="width: 50px; margin-left: 10px;">
+                <img src="data:image/png;base64,{logo3_base64}" alt="Logo" style="width: 70px; margin-left: 20px;">
             </a>
         </div>
         """,
