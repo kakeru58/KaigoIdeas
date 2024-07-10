@@ -30,7 +30,7 @@ def resize_image(image_data, max_width=1200):
 # UIの設定
 st.set_page_config(layout="wide")
 
-st.title('介護のアイデアサイト')
+st.title('介護福祉のアイデアサイト')
 
 # 新しい投稿の入力フォーム
 st.header('新しい投稿を追加')
