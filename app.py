@@ -143,17 +143,22 @@ for post in posts:
             st.experimental_rerun()
 # フッターに著作権情報とロゴを表示
 st.markdown("---")
-footer_col1, footer_col2 = st.columns([4, 1])
+# ロゴ画像をBase64エンコード
+logo_path = "logo1.png"
+logo_base64 = get_base64_image(logo_path)
+
+# フッターに著作権情報とBase64エンコードされたロゴを表示
+footer_col1, footer_col2 = st.columns([8, 1])
 
 with footer_col1:
     st.write("© 2024 Kakeru Yamasaki. Licensed under the MIT License.")
 
 with footer_col2:
     st.markdown(
-        """
+        f"""
         <div style="display: flex; align-items: center;">
             <a href="https://your-link-here.com" target="_blank">
-                <img src="logo1.png" alt="Logo" style="width: 50px; margin-left: 10px;">
+                <img src="data:image/png;base64,{logo_base64}" alt="Logo" style="width: 50px; margin-left: 10px;">
             </a>
         </div>
         """,
