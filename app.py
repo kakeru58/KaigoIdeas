@@ -143,11 +143,5 @@ with footer_col1:
     st.write("© 2024 Kakeru Yamasaki. Licensed under the MIT License.")
 
 with footer_col2:
-    st.markdown(
-        """
-        <div style="display: flex; align-items: center;">
-            <img src="static/logo1.png" alt="Logo" style="width: 50px; margin-left: 10px;">
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    logo_footer = Image.open('logo1.png')
+    st.image(logo_footer, width=150)
