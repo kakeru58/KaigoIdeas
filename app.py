@@ -29,20 +29,6 @@ def resize_image(image_data, max_width=1200):
 
 # UIの設定
 st.set_page_config(layout="wide")
-# 開発元のロゴ画像をページ上部に表示
-col1, col2, col3 = st.columns([1, 1, 1])
-
-with col1:
-    logo1 = Image.open('logo1.png')
-    st.image(logo1, width=100)  # 幅を100ピクセルに設定
-
-with col2:
-    logo2 = Image.open('logo2.png')
-    st.image(logo2, width=100)  # 幅を100ピクセルに設定
-
-with col3:
-    logo3 = Image.open('logo3.png')
-    st.image(logo3, width=100)  # 幅を100ピクセルに設定
 
 st.title('介護福祉のアイデアサイト')
 
@@ -149,3 +135,13 @@ for post in posts:
             st.session_state['liked_posts'] = liked_posts
             upload_file_to_s3(DATABASE_PATH, 'ideas.db')  # いいねを反映したDBをS3にアップロード
             st.experimental_rerun()
+# フッターに著作権情報とロゴを表示
+st.markdown("---")
+footer_col1, footer_col2 = st.columns([8, 1])
+
+with footer_col1:
+    st.write("© 2024 Kakeru Yamasaki. Licensed under the MIT License.")
+
+with footer_col2:
+    logo_footer = Image.open('logo1.png')
+    st.image(logo_footer, width=50)
