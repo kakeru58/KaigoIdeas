@@ -29,20 +29,20 @@ def resize_image(image_data, max_width=1200):
 
 # UIの設定
 st.set_page_config(layout="wide")
-# 開発元のロゴ画像を表示
+# 開発元のロゴ画像をページ上部に表示
 col1, col2, col3 = st.columns([1, 1, 1])
 
 with col1:
     logo1 = Image.open('logo1.png')
-    st.image(logo1, use_column_width=True)
+    st.image(logo1, width=100)  # 幅を100ピクセルに設定
 
 with col2:
     logo2 = Image.open('logo2.png')
-    st.image(logo2, use_column_width=True)
+    st.image(logo2, width=100)  # 幅を100ピクセルに設定
 
 with col3:
     logo3 = Image.open('logo3.png')
-    st.image(logo3, use_column_width=True)
+    st.image(logo3, width=100)  # 幅を100ピクセルに設定
 
 st.title('介護福祉のアイデアサイト')
 
