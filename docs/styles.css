@@ -27,13 +27,13 @@ header h1 {
     margin: 0;
     font-size: 3em;
     font-weight: bold;
-    animation: slideInDown 1s ease-out;
+    animation: slideInDown 1s ease-out forwards;
 }
 
 header p {
     font-size: 1.2em;
     margin: 10px 0 0;
-    animation: fadeIn 2s ease-in;
+    animation: fadeIn 2s ease-in forwards;
 }
 
 main {
@@ -88,6 +88,7 @@ li {
     margin-top: 20px;
     font-weight: bold;
     animation: bounceIn 1.5s ease-out;
+    margin-right: 10px;
 }
 
 .cta-button:hover {
@@ -125,12 +126,6 @@ footer p {
     margin-right: 10px;
     border: 2px solid #2a5298;
     animation: pulse 2s infinite;
-}
-
-.contributors li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
 }
 
 .steps {
@@ -238,5 +233,34 @@ footer p {
     to {
         transform: rotate(0);
         opacity: 1;
+    }
+}
+
+/* 追加: レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .cta-button {
+        display: block;
+        margin: 20px 0;
+    }
+
+    .steps {
+        flex-direction: column;
+    }
+
+    .step {
+        min-width: 100%;
+        margin-bottom: 20px;
     }
 }
