@@ -5,51 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>介護福祉のアイデアサイト</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>介護福祉のアイデアサイト</h1>
-        <p>このサイトは、介護福祉に関するアイデアや情報を共有するためのプラットフォームです。</p>
+        <div class="container">
+            <h1>介護福祉のアイデアサイト</h1>
+            <p>介護福祉のニーズやシーズを集め、共有するためのプラットフォーム</p>
+        </div>
     </header>
     <main>
-        <section>
-            <h2>使い方</h2>
-            <p>以下のリンクから実際のアプリケーションを利用できます：</p>
-            <iframe src="https://kaigoideas.streamlit.app/?embed_options=show_toolbar,show_padding,show_footer,dark_theme,disable_scrolling,light_theme,show_colored_line" 
-                    width="100%" height="800px" style="border:none;"></iframe>
-            <h3>1. 新しい投稿を追加</h3>
-            <ul>
-                <li><strong>タイトル</strong>: 投稿のタイトルを入力します。</li>
-                <li><strong>画像</strong>: 画像をアップロードします（オプション）。</li>
-                <li><strong>詳細</strong>: 投稿の詳細を入力します。</li>
-                <li><strong>タグ</strong>: タグを追加できます。タグは自動補完機能を持ち、既存のタグから選択できます。</li>
-            </ul>
-            <h3>2. 投稿を検索</h3>
-            <ul>
-                <li><strong>検索キーワード</strong>: 投稿のタイトル、詳細、タグをキーワードで検索できます。</li>
-                <li><strong>タグ検索</strong>: タグを選択して検索できます。タグは自動補完機能を持ち、既存のタグから選択できます。</li>
-            </ul>
-            <h3>3. 投稿の表示</h3>
-            <ul>
-                <li><strong>一覧表示</strong>: すべての投稿を一覧で表示します。各投稿にはタイトル、詳細、タグ、いいね数が表示されます。</li>
-                <li><strong>画像表示</strong>: 画像がアップロードされている場合、投稿の横に画像が表示されます。</li>
-                <li><strong>タグ表示</strong>: タグは丸く囲んで表示されます。</li>
-            </ul>
-            <h3>4. いいね機能</h3>
-            <ul>
-                <li>各投稿には「いいね」ボタンがあり、ユーザーは一度だけいいねを押すことができます。いいねを押すと、その投稿のいいね数が増えます。</li>
-            </ul>
-        </section>
-        <section>
-            <h2>コントリビューター</h2>
-            <p>プロジェクトに貢献してくれた方々はこちらです：</p>
-            <ul>
-                <li><a href="https://github.com/kakeru58" target="_blank">Kakeru Yamasaki</a></li>
-            </ul>
-        </section>
+        <div class="container">
+            <section class="intro">
+                <h2>このサイトについて</h2>
+                <p>このサイトは、介護福祉に関するアイデアや情報を共有し、介護福祉分野の発展と改善を目指しています。多くの人々が役立つ情報を見つけ、介護現場の改善や新しいアイデアの創出に寄与することを目的としています。</p>
+                <p>介護福祉分野がより盛り上がることを狙って、皆さんの知識や経験をぜひ共有してください。</p>
+                <a href="https://kaigoideas.streamlit.app" target="_blank" class="cta-button">実際のアプリケーションを見る</a>
+            </section>
+            <section>
+                <h2>使い方</h2>
+                <div class="steps">
+                    <div class="step">
+                        <i class="fas fa-plus-circle"></i>
+                        <h3>1. 新しい投稿を追加</h3>
+                        <ul>
+                            <li><strong>タイトル</strong>: 投稿のタイトルを入力します。</li>
+                            <li><strong>画像</strong>: 画像をアップロードします（オプション）。</li>
+                            <li><strong>詳細</strong>: 投稿の詳細を入力します。</li>
+                            <li><strong>タグ</strong>: タグを追加できます。タグは自動補完機能を持ち、既存のタグから選択できます。</li>
+                        </ul>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-search"></i>
+                        <h3>2. 投稿を検索</h3>
+                        <ul>
+                            <li><strong>検索キーワード</strong>: 投稿のタイトル、詳細、タグをキーワードで検索できます。</li>
+                            <li><strong>タグ検索</strong>: タグを選択して検索できます。タグは自動補完機能を持ち、既存のタグから選択できます。</li>
+                        </ul>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-list"></i>
+                        <h3>3. 投稿の表示</h3>
+                        <ul>
+                            <li><strong>一覧表示</strong>: すべての投稿を一覧で表示します。各投稿にはタイトル、詳細、タグ、いいね数が表示されます。</li>
+                            <li><strong>画像表示</strong>: 画像がアップロードされている場合、投稿の横に画像が表示されます。</li>
+                            <li><strong>タグ表示</strong>: タグは丸く囲んで表示されます。</li>
+                        </ul>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-thumbs-up"></i>
+                        <h3>4. いいね機能</h3>
+                        <ul>
+                            <li>各投稿には「いいね」ボタンがあり、ユーザーは一度だけいいねを押すことができます。いいねを押すと、その投稿のいいね数が増えます。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>コントリビューター</h2>
+                <p>プロジェクトに貢献してくれた方々はこちらです：</p>
+                <ul class="contributors">
+                    <li>
+                        <img src="https://github.com/kakeru58.png" alt="Kakeru Yamasaki" class="contributor-image">
+                        <a href="https://github.com/kakeru58" target="_blank">Kakeru Yamasaki</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2024 Kakeru Yamasaki. Licensed under the MIT License.</p>
+        <div class="container">
+            <p>&copy; 2024 Kakeru Yamasaki. Licensed under the MIT License.</p>
+        </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

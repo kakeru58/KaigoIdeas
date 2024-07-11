@@ -1,28 +1,67 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 header {
-    background: #35424a;
+    background: linear-gradient(90deg, #2a5298, #1e3c72);
     color: #ffffff;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 1.2em;
+    margin: 10px 0 0;
 }
 
 main {
-    padding: 20px;
+    padding: 20px 0;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: -20px;
+    border-radius: 10px;
 }
 
 section {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 h2, h3 {
-    color: #333333;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: relative;
+}
+
+h2::after, h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #2a5298;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
 }
 
 ul {
@@ -34,13 +73,80 @@ li {
     margin-bottom: 10px;
 }
 
-footer {
-    background: #35424a;
+.cta-button {
+    display: inline-block;
+    background: #2a5298;
     color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
+.cta-button:hover {
+    background: #1e3c72;
+}
+
+footer {
+    background: #2a5298;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+}
+
+.contributors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contributor-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #2a5298;
+}
+
+.contributors li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.step {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.step i {
+    font-size: 3em;
+    color: #2a5298;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.1;
+}
