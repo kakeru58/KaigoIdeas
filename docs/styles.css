@@ -255,33 +255,3 @@ footer p {
     }
 }
 
-
-
-/* 追加: レスポンシブデザイン */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-
-    header h1 {
-        font-size: 2.5em;
-    }
-
-    header p {
-        font-size: 1em;
-    }
-
-    .cta-button {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .steps {
-        flex-direction: column;
-    }
-
-    .step {
-        min-width: 100%;
-        margin-bottom: 20px;
-    }
-}
