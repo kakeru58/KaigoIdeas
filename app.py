@@ -1,3 +1,4 @@
+import sys  # 追加
 import streamlit as st
 from PIL import Image, ImageOps
 import io
@@ -5,7 +6,8 @@ from database import add_post, update_likes, get_all_posts, search_posts, get_al
 from streamlit_tags import st_tags
 import base64
 
-
+# デバッグモードのチェック
+debug_mode = '-d' in sys.argv  # 追加
 # データベースをセットアップ
 setup_database()
 
@@ -71,7 +73,8 @@ if st.button('投稿'):
             image_data = resize_image(image_data)
         add_post(title, image_data, details, tags)
         st.success('投稿が追加されました')
-        upload_file_to_s3(DATABASE_PATH, 'ideas.db')  # データベースをS3にアップロード
+        if not debug_mode:  # 追加
+            upload_file_to_s3(DATABASE_PATH, 'ideas.db')  # データベースをS3にアップロード
     else:
         st.error('タイトルと詳細を入力してください')
 
@@ -134,7 +137,8 @@ for post in posts:
                 update_likes(post['id'])
                 liked_posts.add(post['id'])
                 st.session_state['liked_posts'] = liked_posts
-                upload_file_to_s3(DATABASE_PATH, 'ideas.db')  # いいねを反映したDBをS3にアップロード
+                if not debug_mode:  # 追加
+                    upload_file_to_s3(DATABASE_PATH, 'ideas.db')  # いいねを反映したDBをS3にアップロード
                 st.experimental_rerun()
     else:
         st.subheader(post['title'])

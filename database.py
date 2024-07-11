@@ -1,30 +1,38 @@
+import sys  # 追加
 import sqlite3
 import boto3
 import os
 from botocore.exceptions import ClientError
 import streamlit as st
 
+# デバッグモードのチェック
+debug_mode = '-d' in sys.argv
+
 # Amazon S3設定
-s3 = boto3.client(
-    's3',
-    aws_access_key_id=st.secrets["s3"]["aws_access_key_id"],
-    aws_secret_access_key=st.secrets["s3"]["aws_secret_access_key"],
-    region_name=st.secrets["s3"]["region"]
-)
-BUCKET_NAME = st.secrets["s3"]["bucket_name"]
+if not debug_mode:  # 追加
+    # Amazon S3設定
+    s3 = boto3.client(
+        's3',
+        aws_access_key_id=st.secrets["s3"]["aws_access_key_id"],
+        aws_secret_access_key=st.secrets["s3"]["aws_secret_access_key"],
+        region_name=st.secrets["s3"]["region"]
+    )
+    BUCKET_NAME = st.secrets["s3"]["bucket_name"]
 
 # S3にファイルをアップロードする関数
 def upload_file_to_s3(local_path, s3_path):
-    s3.upload_file(local_path, BUCKET_NAME, s3_path)
+    if not debug_mode:
+        s3.upload_file(local_path, BUCKET_NAME, s3_path)
     return s3_path
 
 # S3からファイルをダウンロードする関数
 def download_file_from_s3(s3_path, local_path):
-    try:
-        s3.download_file(BUCKET_NAME, s3_path, local_path)
-    except ClientError as e:
-        if e.response['Error']['Code'] != '404':
-            raise
+    if not debug_mode:
+        try:
+            s3.download_file(BUCKET_NAME, s3_path, local_path)
+        except ClientError as e:
+            if e.response['Error']['Code'] != '404':
+                raise
 
 # データベースディレクトリの設定
 DB_DIR = "DB"
