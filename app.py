@@ -116,7 +116,6 @@ tag_style = """
 }
 </style>
 """
-
 # 投稿を表示
 st.header('投稿一覧')
 st.markdown(tag_style, unsafe_allow_html=True)
@@ -152,6 +151,58 @@ for post in posts:
             st.session_state['liked_posts'] = liked_posts
             upload_file_to_s3(DATABASE_PATH, 'ideas.db')  # いいねを反映したDBをS3にアップロード
             st.experimental_rerun()
+
+
+# コントリビューターセクション
+st.markdown("""<hr style="height:2px;border:none;color:#333;background-color:#333;" />""", unsafe_allow_html=True)
+st.header('システム開発における貢献者')
+
+# コントリビューターの情報
+contributors = [
+    {"name": "Kakeru Yamasaki", "github": "https://github.com/kakeru58"},
+    # 追加のコントリビューターがいればここに追加
+]
+
+# スタイルの定義
+contributor_style = """
+<style>
+.contributor {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.contributor img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+.contributor a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+.contributor a:hover {
+    text-decoration: underline;
+}
+</style>
+"""
+
+st.markdown(contributor_style, unsafe_allow_html=True)
+
+# コントリビューターを表示
+for contributor in contributors:
+    github_username = contributor["github"].split("/")[-1]
+    profile_image_url = f"https://github.com/{github_username}.png"
+    st.markdown(
+        f"""
+        <div class="contributor">
+            <img src="{profile_image_url}" alt="{contributor['name']}" width="50">
+            <a href="{contributor['github']}" target="_blank">{contributor['name']}</a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 # フッターに著作権情報とロゴを表示
 st.markdown("---")
 # ロゴ画像をBase64エンコード
