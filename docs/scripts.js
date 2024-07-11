@@ -5,4 +5,3 @@ document.addEventListener("DOMContentLoaded", function() {
     gsap.from(".step", { duration: 1, delay: 1.5, y: -50, opacity: 0, stagger: 0.2, ease: "power1" });
     gsap.from(".contributors li", { duration: 1, delay: 2, y: -50, opacity: 0, stagger: 0.2, ease: "power1" });
 });
-
