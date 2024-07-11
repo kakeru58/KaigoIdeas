@@ -96,6 +96,12 @@ li {
     transform: scale(1.05);
 }
 
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 footer {
     background: #2a5298;
     color: #ffffff;
@@ -239,7 +245,7 @@ footer p {
 /* 追加: レスポンシブデザイン */
 @media (max-width: 768px) {
     .container {
-        width: 90%;
+        width: 95%;
     }
 
     header h1 {
@@ -252,7 +258,7 @@ footer p {
 
     .cta-button {
         display: block;
-        margin: 20px 0;
+        margin: 10px 0;
     }
 
     .steps {
