@@ -137,7 +137,7 @@ footer p {
     border-radius: 50%;
     margin-right: 10px;
     border: 2px solid #2a5298;
-    animation: pulse 2s infinite forwards;
+    animation: pulse 2s infinite;
 }
 
 .contributors li {
@@ -176,7 +176,6 @@ footer p {
     animation: rotateIn 1s ease-out forwards;
 }
 
-/* Keyframes */
 @keyframes slideInDown {
     from {
         transform: translateY(-100%);
@@ -256,19 +255,3 @@ footer p {
     }
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-    
-    .steps .step {
-        flex: 1 1 90%; /* Adjust width and spacing for smaller screens */
-        margin: 10px auto; /* Center steps and add margin */
-    }
-    
-    .cta-button {
-        width: 100%; /* Make buttons full width on small screens */
-        margin-bottom: 10px;
-    }
-}
